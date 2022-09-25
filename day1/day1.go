@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"bufio"
@@ -8,15 +8,15 @@ import (
 	"strconv"
 )
 
-func main() {
-	file, err := os.Open("day1.input")
+func Run(filename string) (count1, count2 int64) {
+	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-	count1, count2 := 0, 0
+	count1, count2 = 0, 0
 	var vals [3]int64
 
 	scanner.Scan()
@@ -52,4 +52,6 @@ func main() {
 	fmt.Println(message)
 	message = fmt.Sprintf("%v sum increases", count2)
 	fmt.Println(message)
+
+	return
 }
